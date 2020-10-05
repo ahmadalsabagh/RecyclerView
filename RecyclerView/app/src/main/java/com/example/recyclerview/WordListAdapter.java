@@ -1,6 +1,8 @@
 package com.example.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +18,15 @@ import java.util.List;
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
     private final LinkedList<String> mWordList;
     private final LinkedList<String> mDescriptionList;
+    private final LinkedList<String> mRecipeList;
     //private LayoutInflater mInflater;
     private Context mContext;
 
-    public WordListAdapter(Context context, LinkedList<String> wordList,LinkedList<String> descriptionList){
+    public WordListAdapter(Context context, LinkedList<String> wordList,LinkedList<String> descriptionList,LinkedList<String> recipeList){
         //mInflater = LayoutInflater.from(context);
         this.mContext = context;
         this.mWordList = wordList;
+        this.mRecipeList = recipeList;
         this.mDescriptionList = descriptionList;
     }
 
@@ -39,16 +43,20 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
 
     @Override
-    public void onBindViewHolder(@NonNull WordListAdapter.WordViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull WordListAdapter.WordViewHolder holder, final int position) {
         String mCurrent = mWordList.get(position);
         String descriptionCurrent = mDescriptionList.get(position);
+        final String recipeCurrent = mRecipeList.get(position);
         holder.wordItemView.setText(mCurrent);
         holder.descriptionItemView.setText(descriptionCurrent);
 
         holder.parentBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Toast.makeText(mContext, "hi", Toast.LENGTH_SHORT).show();
+                Log.d("TAG", "onClick: clicked on: ");
+                Intent intent = new Intent(mContext, RecipeActivity.class);
+                intent.putExtra("full_recipe", recipeCurrent);
+                mContext.startActivity(intent);
             }
         });
     }
