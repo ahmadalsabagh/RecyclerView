@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Recycler View</string>
+    <string name="title_foodrecipe_list">Food_Recipes</string>
+    <string name="title_foodrecipe_detail">Food_Recipe Detail</string>
 </resources>
