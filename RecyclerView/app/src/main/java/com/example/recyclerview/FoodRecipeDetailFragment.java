@@ -64,7 +64,7 @@ public class FoodRecipeDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.foodrecipe_detail)).setText(mItem.recipeDescription);
+            ((TextView) rootView.findViewById(R.id.foodrecipe_detail)).setText(mItem.recipeDetail);
         }
 
         return rootView;
