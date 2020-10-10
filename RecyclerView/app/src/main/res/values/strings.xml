@@ -2,4 +2,6 @@
     <string name="app_name">Recycler View</string>
     <string name="title_foodrecipe_list">Food_Recipes</string>
     <string name="title_foodrecipe_detail">Food_Recipe Detail</string>
+    <string name="gordon_ramsay">gordon ramsay</string>
+    <string name="hey_you_lets_start_cooking">Hey you! Lets start cooking</string>
 </resources>
